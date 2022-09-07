@@ -265,7 +265,8 @@ th:nth-of-type(2), td:nth-of-type(2){
 }
 
 section + h5{
-  color: #8c929c;
+  color: white;
+  font-weight: 800;
 }
 
 section+h5 span{

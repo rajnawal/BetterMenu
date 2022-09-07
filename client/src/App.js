@@ -348,7 +348,7 @@ export default function App(){
                       }
                     </div>
                   ))
-                : <h5>No results to display</h5>
+                : <></>
                 }
         </section>
         {

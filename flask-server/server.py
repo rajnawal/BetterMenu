@@ -42,8 +42,6 @@ app = Flask(__name__)
 
 @app.route("/getItems", methods=['GET'])
 def getItems():
-    
-
 
     workingDict = request.args.to_dict()
     url = "https://hdh-web.ucsd.edu/dining/apps/diningservices/Restaurants/MenuItem/" + workingDict["num"]
@@ -102,38 +100,4 @@ def getItems():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-# Members API Route
-# @app.route("/getItems", methods=['GET'])
-# def getItems():
-
-    # workingDict = request.args.to_dict()
-    
-    # url = "http://hdh-web.ucsd.edu/dining/apps/diningservices/Restaurants/MenuItem/" + workingDict["num"]
-    # page = urlopen(url)
-    # soup = BeautifulSoup(page, "html.parser")
-    # page.close()
-
-    # menuContainer = soup.find(id="menuContainer")
-    # menuItems = menuContainer.find_all(href=re.compile("nutritionfacts2"))
-    # info = {}
-
-    # for i in range(len(menuItems)):
-    #     getInfo(info, menuItems[i].get('href'))
-    # return info
-# def getInfo(info, urlString):
-# 	page = urlopen("http://hdh-web.ucsd.edu/" + urlString)
-# 	soup = BeautifulSoup(page, "html.parser")
-# 	headings = soup.find_all("h2")
-
-# 	info[soup.find(class_="container-fluid").h1.string] = {
-# 	"calories" : soup.td.string,
-# 	"protein": soup.find(string=re.compile("Protein")).split()[-1],
-# 	"carb": soup.find(string=re.compile("Tot. Carb.")).split()[-1],
-# 	"fat": soup.find(string=re.compile("Total Fat")).split()[-1],
-# 	"ingredients": headings[0].find_next_sibling("p").string,
-# 	"allergens": headings[1].find_next_sibling("p").string,
-# 	}
-
-# 	page.close()
+    app.run(threaded=True)
