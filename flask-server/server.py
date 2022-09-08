@@ -101,6 +101,7 @@ def getItems():
             calories = workingDict["calories"].split(",")
             if( (float(protein[0]) <= float(data["protein"]) <= float(protein[1])) and  (float(calories[0]) <= float(data["calories"]) <= float(calories[1]))):
                 result[n] = [data["protein"], data["calories"]]
+    print(result)
     return result
 
 
