@@ -1,0 +1,7 @@
+Flask
+Gunicorn
+redis
+BeautifulSoup
+Redis
+urllib.request
+bs4
