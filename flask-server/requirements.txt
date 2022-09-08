@@ -3,4 +3,3 @@ Gunicorn
 redis
 beautifulsoup4
 Redis
-urllib
