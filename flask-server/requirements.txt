@@ -1,7 +1,6 @@
 Flask
 Gunicorn
 redis
-BeautifulSoup
+beautifulsoup4
 Redis
 urllib.request
-bs4
