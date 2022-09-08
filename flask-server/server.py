@@ -58,7 +58,6 @@ def getItems():
 
     menuContainer = soup.find(id="menuContainer")
     menuItems = menuContainer.find_all(href=re.compile("nutritionfacts2"))
-    result = {}
     
     for i in range(len(menuItems)):
 
