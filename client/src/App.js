@@ -118,7 +118,7 @@ let handleSubmit = (a,b,c,d,e,f,setData, setQueryBeingProcessed) =>{
   };
 
   for (const r of Object.keys(urls)) {
-    fetch("/getItems" + urls[r], requestOptions).then(
+    fetch("https://bettermenuapi.onrender.com/getItems" + urls[r], requestOptions).then(
       res => res.json()
     ).then(
       da => {
