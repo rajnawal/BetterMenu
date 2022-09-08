@@ -353,6 +353,7 @@ export default function App(){
         </section>
         {
           /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) 
+          && (!window.navigator.standalone || !window.matchMedia('(display-mode: standalone)').matches)
             ? <>
             <h5>Add to homescreen:
               <span>
