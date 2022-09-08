@@ -3,11 +3,11 @@ from distutils.log import debug
 from flask import Flask, request
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import re, json, redis, datetime, os
+import re, json, redis, datetime
 
 
-# redis_client = redis.Redis(host='localhost', port=6379, db = 0)
-redis_client = redis.from_url(os.environ['redis://red-ccckbtun6mpkorrem0pg:6379'])
+redis_client = redis.Redis(host='red-ccckbtun6mpkorrem0pg', port=6379, db = 0)
+# redis_client = redis.from_url(os.environ['redis://red-ccckbtun6mpkorrem0pg:6379'])
 
 def defaultIfNone(varToCheck, defaultValue):
     if(type(varToCheck) == None):
