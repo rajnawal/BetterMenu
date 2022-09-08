@@ -48,8 +48,12 @@ def getItems():
     page = urlopen(url)
     soup = BeautifulSoup(page, "html.parser")
 
+    result = {}
+    result.headers.add("Access-Control-Allow-Origin", "*")
+
+
     if(len(soup.find_all(string = re.compile(datetime.datetime.now().strftime("%A")[0:3] + " Closed"))) > 0):
-        return {}
+        return result
 
     menuContainer = soup.find(id="menuContainer")
     menuItems = menuContainer.find_all(href=re.compile("nutritionfacts2"))
