@@ -1,6 +1,7 @@
 from crypt import methods
 from distutils.log import debug
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re, json, redis, datetime
@@ -39,6 +40,8 @@ def getInfo(foodName, urlString):
     return foodName
 
 app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route("/getItems", methods=['GET'])
@@ -50,7 +53,6 @@ def getItems():
     soup = BeautifulSoup(page, "html.parser")
 
     result = {}
-    result.headers.add("Access-Control-Allow-Origin", "*")
 
 
     if(len(soup.find_all(string = re.compile(datetime.datetime.now().strftime("%A")[0:3] + " Closed"))) > 0):

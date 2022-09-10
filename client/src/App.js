@@ -113,8 +113,7 @@ let handleSubmit = (a,b,c,d,e,f,setData, setQueryBeingProcessed) =>{
   const urls = buildUrls(a,b,c,d,e,f)
 
   const requestOptions = {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
+    method: 'GET'
   };
 
   for (const r of Object.keys(urls)) {

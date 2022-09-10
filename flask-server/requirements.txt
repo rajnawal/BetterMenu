@@ -3,3 +3,4 @@ Gunicorn
 redis
 beautifulsoup4
 Redis
+flask_cors

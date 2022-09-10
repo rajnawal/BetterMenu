@@ -155,7 +155,8 @@ input[type='submit'] {
 :disabled {
   /* pointer-events: none; */
   background-color: #B2F5EA !important;
-  cursor: not-allowed !important; }
+  cursor: not-allowed !important;
+  opacity: 50%; }
 
 .results {
   min-height: 50px;
