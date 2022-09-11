@@ -106,29 +106,36 @@ const buildUrls = (
 }
 
 let resultRecorder = {}
+let count = 0
 
 let handleSubmit = (a,b,c,d,e,f,setData, setQueryBeingProcessed) =>{
   setQueryBeingProcessed([true, false])
   resultRecorder = {}
+  count = 0
   const urls = buildUrls(a,b,c,d,e,f)
 
   const requestOptions = {
     method: 'GET'
   };
-
-  for (const r of Object.keys(urls)) {
+  const keyNames = Object.keys(urls)
+  for (const r of keyNames) {
     fetch("https://bettermenuapi.onrender.com/getItems" + urls[r], requestOptions).then(
       res => res.json()
     ).then(
       da => {
         resultRecorder[r] = da
         setData(resultRecorder)
-        setQueryBeingProcessed([false, false])
+        setQueryBeingProcessed([true, false])
       }
-    ) 
+    ).then(      
+      () => {
+        count++
+        if(count === keyNames.length) {
+          setQueryBeingProcessed([false, true])
+        }
+      }
+    )
   }
-  setTimeout(setQueryBeingProcessed([false, true]), 100)
-
 }
 
 export default function App(){
@@ -286,7 +293,8 @@ export default function App(){
               onChange = {(event) => setIngredientsToAvoid(event.target.value)}
             />
             <input
-                disabled={Object.keys(restaurantsToConsider).length < 1 || queryBeingProcessed[0] ? "a" : ""}
+                disabled={
+                  Object.keys(restaurantsToConsider).length < 1 || queryBeingProcessed[0] ? "a" : ""}
                 type={'submit'}
                 onClick = {() => handleSubmit(
                   restaurantsToConsider,
@@ -368,6 +376,7 @@ export default function App(){
             </>
             : <></>
         }
+        <div style={{display : queryBeingProcessed[0] ? "inline-block" : "none" }}  className="loader"/>
       </ChakraProvider>
     );
     }

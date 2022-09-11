@@ -1,6 +1,17 @@
 .App {
   text-align: center; }
 
+@media screen and (max-width: 800px){
+  *{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
 *::selection {
   background: #4FD1C5;
   color: #1A202C; }
@@ -177,7 +188,7 @@ td:first-of-type, th:first-of-type {
   text-align: left; }
 
 td {
-  max-width: 40vw;
+  max-width: 200px;
   text-align: right;
   color: #6f7a8f; }
 
@@ -302,3 +313,25 @@ section + h5 span {
     background-position: 100% 51%; }
   100% {
     background-position: 0% 50%; } }
+
+    @keyframes donut-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    .loader {
+      border: 4px solid rgba(255, 255, 255, 0.5);
+      border-left-color: #4FD1C5;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: donut-spin 1.2s linear infinite;
+      position: sticky;
+      bottom: 15%;
+      z-index: 10;
+    }
+    
