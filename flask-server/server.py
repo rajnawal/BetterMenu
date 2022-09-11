@@ -1,7 +1,5 @@
-from crypt import methods
-from distutils.log import debug
 from flask import Flask, request
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re, json, redis, datetime

@@ -119,7 +119,7 @@ let handleSubmit = (a,b,c,d,e,f,setData, setQueryBeingProcessed) =>{
   };
   const keyNames = Object.keys(urls)
   for (const r of keyNames) {
-    fetch("https://bettermenuapi.onrender.com/getItems" + urls[r], requestOptions).then(
+    fetch("https://us-central1-nodal-skein-362203.cloudfunctions.net/function-1" + urls[r], requestOptions).then(
       res => res.json()
     ).then(
       da => {
